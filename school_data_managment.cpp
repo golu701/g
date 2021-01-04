@@ -112,7 +112,7 @@ class Teacher: public Person
         {
             Person::display();
             cout<<"Teacher ID: "<<t_id<<endl;
-            cout<<"Salary: "<<t_salary<<end;
+            cout<<"Salary: "<<t_salary<<endl;
         }
 };
 
@@ -137,16 +137,21 @@ int main()
                 o_file.open("STAFF.DAT",ios::out|ios::binary|ios::app);
                 s1.input();
                 o_file.write((char*)&s1,sizeof(s1));
+                o_file.close();
                 break;
             case 2:
                 o_file.open("TEACHER.DAT",ios::out|ios::binary|ios::app);
                 s1.input();
-                o_file.write((char*)&s1,sizeof(s1));
+                o_file.write((char*)&t1,sizeof(t1));
+                o_file.close();
+
                 break;
             case 3:
                 o_file.open("STAFF.DAT",ios::out|ios::binary|ios::app);
                 s1.input();
-                o_file.write((char*)&s1,sizeof(s1));
+                o_file.write((char*)&st1,sizeof(st1));
+                o_file.close();
+
                 break;
             case 4:
                 loop_data=false;
@@ -156,7 +161,6 @@ int main()
         }
     }
 
-    o_file.close();
 
 
     loop_data=true;
