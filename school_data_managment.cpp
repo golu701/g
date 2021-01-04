@@ -175,7 +175,7 @@ int main()
                 cout<<"Enter Staff Id ";
                 cin>>id;
                 flag=0;
-                while (I_file.read((char*)&s1),sizeof(s1))
+                while (I_file.read((char*)&s1,sizeof(s1)))
                 {
                     if(id==s1.returnS_id())
                     {
@@ -198,7 +198,7 @@ int main()
                 cout<<"Enter Teacher's Id ";
                 cin>>id;
                 flag=0;
-                while (I_file.read((char*)&t1),sizeof(t1))
+                while (I_file.read((char*)&t1,sizeof(t1)))
                 {
                     if(id==t1.returnT_id())
                     {
@@ -221,7 +221,7 @@ int main()
                 cout<<"Enter Student's Id ";
                 cin>>id;
                 flag=0;
-                while (I_file.read((char*)&st1),sizeof(st1))
+                while (I_file.read((char*)&st1,sizeof(st1)))
                 {
                     if(id==st1.returnRoll_no())
                     {
