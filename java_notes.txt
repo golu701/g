@@ -1,0 +1,189 @@
+A multithreaded program contains two or more parts that can run concurrently.
+
+In a thread-based multitasking environment, the thread is the smallest unit of dispatchable code.
+
+Multithreading enables you to write very efficient programs that make maximum use of the CPU, because idle time can be kept to a minimum.
+
+Single-threaded systems use an approach called an event loop with polling.
+single thread of control runs in an infinite loop, polling a single event queue to decide what
+to do next. Once this polling mechanism returns with, say, a signal that a network file is
+ready to be read, then the event loop dispatches control to the appropriate event handler.
+Until this event handler returns, nothing else can happen in the system. This wastes CPU
+time. It can also result in one part of a program dominating the system and preventing any
+other events from being processed. In general, in a singled-threaded environment, when a
+thread blocks (that is, suspends execution) because it is waiting for some resource, the entire
+program stops running.
+
+
+The benefit of Java’s multithreading is that the main loop/polling mechanism is eliminated. One thread can pause without stopping other parts of your program.
+
+a thread’s priority is used to decide when to switch from one running thread to the next.
+
+ A thread group is a data structure that controls the state of a collection of threads as a whole. 
+ 
+ 
+ public void run(): is used to perform action for a thread.
+public void start(): starts the execution of the thread.JVM calls the run() method on the thread.
+public void sleep(long miliseconds): Causes the currently executing thread to sleep (temporarily cease execution) for the specified number of milliseconds.
+public void join(): waits for a thread to die.
+public void join(long miliseconds): waits for a thread to die for the specified miliseconds.
+public int getPriority(): returns the priority of the thread.
+public int setPriority(int priority): changes the priority of the thread.
+public String getName(): returns the name of the thread.
+public void setName(String name): changes the name of the thread.
+public Thread currentThread(): returns the reference of currently executing thread.
+public int getId(): returns the id of the thread.
+public Thread.State getState(): returns the state of the thread.
+public boolean isAlive(): tests if the thread is alive.
+public void yield(): causes the currently executing thread object to temporarily pause and allow other threads to execute.
+public void suspend(): is used to suspend the thread(depricated).
+public void resume(): is used to resume the suspended thread(depricated).
+public void stop(): is used to stop the thread(depricated).
+public boolean isDaemon(): tests if the thread is a daemon thread.
+public void setDaemon(boolean b): marks the thread as daemon or user thread.
+public void interrupt(): interrupts the thread.
+public boolean isInterrupted(): tests if the thread has been interrupted.
+public static boolean interrupted(): tests if the current thread has been interrupted.
+
+
+
+
+The class Exception and its subclasses are a form of Throwable that indicates conditions that a reasonable application might want to catch.
+https://docs.oracle.com/javase/7/docs/api/java/lang/Exception.html
+
+Method Description
+Throwable fillInStackTrace( ) Returns a Throwable object that contains a completed
+stack trace. This object can be rethrown.
+Throwable getCause( ) Returns the exception that underlies the current
+exception. If there is no underlying exception, null
+is returned.
+String getLocalizedMessage( ) Returns a localized description of the exception.
+String getMessage( ) Returns a description of the exception.
+StackTraceElement[ ] getStackTrace( ) Returns an array that contains the stack trace, one
+element at a time, as an array of StackTraceElement.
+The method at the top of the stack is the last method
+called before the exception was thrown. This method
+is found in the first element of the array. The
+StackTraceElement class gives your program access
+to information about each element in the trace, such
+as its method name.
+Throwable initCause(Throwable
+causeExc)
+Associates causeExc with the invoking exception as a
+cause of the invoking exception. Returns a reference
+to the exception.
+void printStackTrace( ) Displays the stack trace.
+void printStackTrace(PrintStream
+stream)
+Sends the stack trace to the specified stream.
+void printStackTrace(PrintWriter
+stream)
+Sends the stack trace to the specified stream.
+void setStackTrace(StackTraceElement
+elements[ ])
+Sets the stack trace to the elements passed in
+elements. This method is for specialized applications,
+not normal use.
+String toString( ) Returns a String object containing a description of the
+exception. This method is called by println( ) when
+outputting a Throwable object.
+
+
+
+Chained Exceptions
+An application often responds to an exception by throwing another exception. In effect, the first exception causes the second exception. It can be very helpful to know when one exception causes another. 
+
+Chained Exceptions allows to relate one exception with another exception, i.e one exception describes cause of another exception. For example, consider a situation in which a method throws an ArithmeticException because of an attempt to divide by zero but the actual cause of exception was an I/O error which caused the divisor to be zero. The method will throw only ArithmeticException to the caller. So the caller would not come to know about the actual cause of exception. Chained Exception is used in such type of situations.
+
+
+
+When two or more threads need access to a shared resource, they need some way to ensure that the resource will be used by only one thread at a time. The process by which this is achieved is called synchronization.
+
+Synchronization in java is the capability to control the access of multiple threads to any shared resource.
+
+Java Synchronization is better option where we want to allow only one thread to access the shared resource.
+
+Why use Synchronization
+The synchronization is mainly used to
+
+
+To prevent thread interference.
+To prevent consistency problem
+
+
+main (synchronization) => when we start two or more threads within a program, there may be a situation when multiple threads try to access the same resource, so there is a need to synchronize the action of multiple threads and make sure that only one thread can access the resource at a given point in time.
+
+
+
+
+
+
+Deadlock in java
+Deadlock in java is a part of multithreading. Deadlock can occur in a situation when a thread is waiting for an object lock, that is acquired by another thread and second thread is waiting for an object lock that is acquired by first thread. Since, both threads are waiting for each other to release the lock, the condition is called deadlock.
+
+
+
+currentTimeMillis:---
+currentTimeMillis( ) method to time how long various parts of your program take to execute
+The currentTimeMillis( ) method returns the current time in terms of milliseconds.
+
+
+Using arraycopy( )
+The arraycopy( ) method can be used to copy quickly an array of any type from one place to another. This is much faster than the equivalent loop written out longhand in Java.
+
+
+public static void arraycopy(Object src, int srcPos, Object dest, int destPos, int length)
+Parameters
+src − This is the source array.
+
+srcPos − This is the starting position in the source array.
+
+dest − This is the destination array.
+
+destPos − This is the starting position in the destination data.
+
+length − This is the number of array elements to be copied.
+Return Value
+This method does not return any value.
+
+Exception
+IndexOutOfBoundsException − if copying would cause access of data outside array bounds.
+
+ArrayStoreException − if an element in the src array could not be stored into the dest array because of a type mismatch.
+
+NullPointerException − if either src or dest is null.
+
+
+
+Environment Properties::---
+
+The following properties are available:
+file.separator 
+java.specification.version
+java.vm.version
+java.class.path 
+java.vendor 
+line.separator
+java.class.version 
+java.vendor.url os.arch
+java.compiler 
+java.version 
+os.name
+java.ext.dirs 
+java.vm.name 
+os.version
+java.home 
+java.vm.specification.name 
+path.separator
+java.io.tmpdir 
+java.vm.specification.vendor 
+user.dir
+java.library.path 
+java.vm.specification.version 
+user.home
+java.specification.name 
+java.vm.vendor 
+user.name
+java.specification.vendor
+
+
